@@ -2,6 +2,7 @@ package day_02;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -78,13 +79,14 @@ public class C01 {
 
         String expectedTagName = "input";
 
+        Assert.assertEquals(expectedTagName,actuelTagName);
+        // Assert.assertTrue(expectedTagName.equals(actuelTagName));
 
-
-        if(expectedTagName.equals(actuelTagName)){
-            System.out.println("TagName input");
-        }else{
-            System.out.println("TagName input degil");
-        }
+       // if(expectedTagName.equals(actuelTagName)){
+       //    System.out.println("TagName input");
+       // }else{
+       //     System.out.println("TagName input degil");
+       // }
 
 
 
@@ -106,13 +108,14 @@ public class C01 {
 
         String expectedNameDegeri = "field-keywords";
 
+        Assert.assertEquals(expectedNameDegeri,actuelNameDegeri);
+        // Assert.assertTrue(expectedNameDegeri.equals(actuelNameDegeri));
 
-
-        if(expectedNameDegeri.equals(actuelNameDegeri)){
-            System.out.println("name attribute'nun degeri field-keyword");
-        }else{
-            System.out.println("name attribute'nun degeri field-keyword degil");
-        }
+       // if(expectedNameDegeri.equals(actuelNameDegeri)){
+       //     System.out.println("name attribute'nun degeri field-keyword");
+       // }else{
+       //     System.out.println("name attribute'nun degeri field-keyword degil");
+       // }
 
 
 

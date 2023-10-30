@@ -26,16 +26,30 @@ public class C01_Iframe extends TestBase {
 
 
 
+
+
+
+
+
         // Videoyu görecek kadar asagiya ininiz
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
-        Thread.sleep(2000);
+         Actions actions = new Actions(driver);
+         actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+
+         Thread.sleep(2000);
+
+
+
+
+
+
 
 
         // Videoyu izlemek icin Play tusuna basiniz
 
         WebElement iframe = driver.findElement(By.xpath("//iframe[@src='https://www.youtube.com/embed/owsfdh4gxyc']"));
         driver.switchTo().frame(iframe);
+        //driver.switchTo().frame(0);
+        //driver.switchTo().frame("iframe'in html kodlarında id yada name attribute'u olsaydı id yada name attribute locati ile de yapılabilirdi");
 
 
 
@@ -54,9 +68,26 @@ public class C01_Iframe extends TestBase {
 
 
 
+
+
+
+
+
+
+        Thread.sleep(2000);
+
+
+
+
         // Videoyu calistirdiginizi test ediniz
         WebElement youTubeYazisi = driver.findElement(By.xpath("//a[@class='ytp-youtube-button ytp-button yt-uix-sessionlink']"));
         Assert.assertTrue(youTubeYazisi.isDisplayed());
+
+
+
+
+
+
 
 
 
@@ -65,8 +96,11 @@ public class C01_Iframe extends TestBase {
 
         driver.switchTo().defaultContent();
 
-       WebElement powerYazisi = driver.findElement(By.xpath("//span[@id='Powerful_but_easy_to_misuse']"));
-       Assert.assertTrue(powerYazisi.isDisplayed());
+
+
+
+        WebElement powerYazisi = driver.findElement(By.xpath("//span[@id='Powerful_but_easy_to_misuse']"));
+        Assert.assertTrue(powerYazisi.isDisplayed());
 
 
        /*

@@ -29,8 +29,15 @@ public class C02_Iframe extends TestBase {
     @Test
     public void test01() throws InterruptedException {
 
+
+
         // 'https://www.jqueryscript.net/demo/jQuery-Plugin-For-Responsive-Flexible-Iframes-Flexy/' sayfasına gidiniz
         driver.get("https://www.jqueryscript.net/demo/jQuery-Plugin-For-Responsive-Flexible-Iframes-Flexy/");
+
+
+
+
+
 
 
 
@@ -45,21 +52,48 @@ public class C02_Iframe extends TestBase {
 
 
 
+
+
+
+
+
+
         // Videoyu izlemek icin Play tusuna basiniz
         WebElement iframe=driver.findElement(By.xpath("//iframe[@src='https://www.youtube.com/embed/x3kfyZJhC3U?rel=0&showinfo=0']"));
-        driver.switchTo().frame(iframe);
+        driver.switchTo().frame(iframe);  // SONRADAN YAZ BUNU
 
+
+
+
+
+
+
+
+
+
+
+
+
+        WebElement playTusu=driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button ytp-large-play-button-red-bg']"));
+        playTusu.click();
 
         //Play'i dogru locate edip click yapmamıza ragmen videoyu calıstırmadı.
         //Bunun üzerine HTML kodlarını inceleyince Play'in aslında bir iframe içerisinde
         //oldugunu gördük.
         //Bu durumda önce iframi'i locate edip sonra switchTo() ile iframe'e gecmeliyiz.
 
-        WebElement playTusu=driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button ytp-large-play-button-red-bg']"));
-        playTusu.click();
-
 
         Thread.sleep(3000);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -75,11 +109,28 @@ public class C02_Iframe extends TestBase {
 
 
 
+
+
+
+
+
+
+
+
         // videoyu tam ekran yapınız
         WebElement tamEkran=driver.findElement(By.xpath("//button[@class='ytp-fullscreen-button ytp-button']"));
         tamEkran.click();
 
         Thread.sleep(3000);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,10 +141,29 @@ public class C02_Iframe extends TestBase {
 
 
 
+
+
+
+
+
+
+
+
+
+
         // videoyu kucultunuz
         tamEkran.click();
 
         Thread.sleep(3000);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,10 +179,30 @@ public class C02_Iframe extends TestBase {
 
 
 
-        // Videoyu calistirdiginizi test ediniz
-        WebElement youTubeYazısı=driver.findElement(By.xpath("//a[@class='ytp-youtube-button ytp-button yt-uix-sessionlink']"));
 
-        Assert.assertTrue(youTubeYazısı.isDisplayed());
+
+
+
+
+
+
+
+        // Videoyu calistirdiginizi test ediniz
+        WebElement youTubeYazisi=driver.findElement(By.xpath("//a[@class='ytp-youtube-button ytp-button yt-uix-sessionlink']"));
+
+        Assert.assertTrue(youTubeYazisi.isDisplayed());
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -121,12 +211,20 @@ public class C02_Iframe extends TestBase {
 
         // 'jQuery Flexy Plugin Demos' yazısının gorunur oldugunu test ediniz
 
-        driver.switchTo().parentFrame();
+        driver.switchTo().parentFrame();  // SONRADAN YAZ BUNU
 
 
 
         WebElement yazı=driver.findElement(By.xpath("//h1[text()='jQuery Flexy Plugin Demos']"));
         Assert.assertTrue(yazı.isDisplayed());
+
+
+    /*
+        'jQuery Flexy Plugin Demos' yazısını dogru locate etmemize ragmen faild verdi
+        cunku yukarida iframe'e gecis yapmistik
+        once oradan cikmamiz lazim
+    */
+
 
 
     }

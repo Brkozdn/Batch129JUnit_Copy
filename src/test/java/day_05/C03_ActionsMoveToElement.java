@@ -10,7 +10,7 @@ import utilities.TestBase;
 
 import java.util.Set;
 
-public class C04_ActionMoveToElement extends TestBase {
+public class C03_ActionsMoveToElement extends TestBase {
 
     // https://amazon.com adresine gidiniz
     // sag ust bolumde bulunan dil secenek menusunun acilmasi icin mause'u bu menunun ustune getirelim
@@ -23,9 +23,16 @@ public class C04_ActionMoveToElement extends TestBase {
     @Test
     public void test01() throws InterruptedException {
 
+
+
+
         // https://amazon.com adresine gidiniz
         driver.get("https://amazon.com");
         String sayfa1Handle = driver.getWindowHandle();
+
+
+
+
 
 
 
@@ -36,14 +43,27 @@ public class C04_ActionMoveToElement extends TestBase {
         WebElement dilMenu = driver.findElement(By.xpath("//div[text()='EN']"));
 
         actions.moveToElement(dilMenu).perform();
+
+
         Thread.sleep(3000);
+
+
+
+
+
+
 
 
 
 
         // Change country/region butonuna basiniz
         driver.findElement(By.xpath("(//div[@class='icp-mkt-change-lnk'])[1]")).click();
+
+
         Thread.sleep(3000);
+
+
+
 
 
 
@@ -52,10 +72,18 @@ public class C04_ActionMoveToElement extends TestBase {
 
         // United States dropdown'undan 'Turkey (Türkiye)' seciniz
         WebElement ddm = driver.findElement(By.xpath("//select[@id='icp-dropdown']"));
+
         Select select = new Select(ddm);
+
         select.selectByVisibleText("Turkey (Türkiye)");
 
+
+
         Thread.sleep(3000);
+
+
+
+
 
 
 
@@ -63,7 +91,15 @@ public class C04_ActionMoveToElement extends TestBase {
         //Drop down opsiyon listesi 'Go to website' butonuna basmamıza engel oldugu icin
         //herhangi bir yere clic yapıp drop down opsiyon listesinin toparlanmasını sagladık
         driver.findElement(By.xpath("//span[text()='Changing country/region website']")).click();
+
+
         Thread.sleep(3000);
+
+
+
+
+
+
 
 
 
@@ -73,11 +109,16 @@ public class C04_ActionMoveToElement extends TestBase {
 
 
 
-        // acilan yeni sayfadanin Title'inin Elektronik icerdigini test ediniz
 
+
+
+
+
+
+        // acilan yeni sayfadanin Title'inin Elektronik icerdigini test ediniz
         Set<String> windowHandlesSeti = driver.getWindowHandles();
 
-        System.out.println(sayfa1Handle);
+        System.out.println("SAYFA1HANDLE: " + sayfa1Handle);
         System.out.println(windowHandlesSeti);
 
 
@@ -94,15 +135,36 @@ public class C04_ActionMoveToElement extends TestBase {
         }
 
 
+        System.out.println("SAYFA2HANDLE: " + sayfa2Handle);
+
+
 
 
         driver.switchTo().window(sayfa2Handle);
+
+
+        /*
+        List<String > pencereler = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(pencereler.get(1));
+        */
+
+        // driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+
+
+
+
+
+        Thread.sleep(3000);
 
 
 
 
         String ikinciSayfaTitle = driver.getTitle();
         System.out.println("İKİNCİ SAYFANIN TİTLE: " + ikinciSayfaTitle);
+
+
+
+
 
         Assert.assertTrue(ikinciSayfaTitle.contains("Elektronik"));
 

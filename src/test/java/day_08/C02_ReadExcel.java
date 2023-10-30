@@ -1,6 +1,5 @@
 package day_08;
 
-import day_06.C04_ReadExcel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
@@ -8,7 +7,7 @@ import org.junit.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class C05_ReadExcel {
+public class C02_ReadExcel {
 
     // Ulkeler dosyasındaki "Başkent (İngilizce)" sutunun yazdırınız
 
@@ -48,7 +47,7 @@ public class C05_ReadExcel {
         for (int i = 0; i <=sonSatirIdx ; i++) {
 
 
-            String satirdakiData = C04_ReadExcel.banaDataGetir(i, 1);
+            String satirdakiData = C01_ReadExcel.banaDataGetir(i, 1);
 
             System.out.println(satirdakiData);
 

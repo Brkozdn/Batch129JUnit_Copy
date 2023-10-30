@@ -1,4 +1,4 @@
-package day_06;
+package day_08;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class C04_ReadExcel {
+public class C01_ReadExcel {
 
     // Ulkeler dosyasındaki 3.satırdaki indexin, 3.sutunundaki indexinin
     // "Cezayir" oldugunu test eden method olusturunuz

@@ -2,12 +2,11 @@ package day_05;
 
 import org.junit.Assert;
 import org.junit.Test;
-import utilities.TestBase;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class C05_Files {
+public class C07_Files {
 
 
     // Desktop(masaustu)'da bir text dosyası olusturun
@@ -39,6 +38,8 @@ public class C05_Files {
 
 
 
+       // NOT: DOSYA OLMASI GEREKLİ(txt,excel,pdf...)
+       // KLASÖR OLMAZ
 
     }
 }

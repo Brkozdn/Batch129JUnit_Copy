@@ -5,10 +5,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import utilities.TestBase;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class C06_FilesDownload extends TestBase {
+public class C08_FilesDownload extends TestBase {
 
     // 'https://the-internet.herokuapp.com/download' adresine gidiniz
     // some-file.txt dosyasini indirelim
@@ -21,6 +23,37 @@ public class C06_FilesDownload extends TestBase {
         // 'https://the-internet.herokuapp.com/download' adresine gidiniz
         driver.get("https://the-internet.herokuapp.com/download");
         Thread.sleep(3000);
+
+
+
+
+        /*
+        String farkliKisimm = System.getProperty("user.home");
+        String ortakKisimm = "\\Downloads\\some-file.txt";
+
+        String dosyaYoluu = farkliKisimm+ortakKisimm;
+
+        try {
+            Files.delete(Paths.get(dosyaYoluu));
+        } catch (Exception e) {
+            System.out.println("Dosya Bulunamadı");
+        }
+
+
+        Eğer localimizden atomasyon ile bir dosya silmek istiyorsak Files.delete islemini kullanırız dosya yolunu
+        içine yerleştiririz.
+
+        Eger localimizde belirttigimiz dosya yoluna ait bir dosya varsa silsin, yoksa "Dosya bulunamadı" msj'ı vermesi icin de
+        try-catch blogu icerisine alırız.(try-catch blogu icerisine almazssak dosyayı bulamazsa silemeyecegi icin exception verir)
+
+
+        Bunu yapma sebebimiz; test classımızı her çalıştırdıgımızda yeni bir dosya indirecegi için
+        indirilenlerdeki dosya kalabalığını önlemiş oluruz aynı zamanda doğrulama yaparken işimizi garantiye almış oluruz.
+
+        Aynı isimde birden fazlada dosya indirmis olsak da her indirilenin yanına index vereceği için ve
+        bizim ilk indirdiğimiz dosya indirilenler klasörünün içinde bulunacağı için
+        her zaman ilk dosyanın varlığını test etmiş oluruz.
+         */
 
 
 

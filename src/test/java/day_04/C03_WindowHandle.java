@@ -15,7 +15,7 @@ public class C03_WindowHandle extends TestBase {
     // 3- yeni bir pencere acip https://www.bestbuy.com sayfasina gidelim
     // 4- title'in 'Best Buy' icerdigini test edelim
     // 5- ilk sayfaya(amazon) donup sayfada java aratalım
-    // 6- arama sonuclarının 'Java' icerdigini test edelim
+    // 6- arama sonuc yazısının 'Java' icerdigini test edelim
     // 7- ikinci sayfaya(bestbuy) donelim
     // 8- logonun gorundugunu test edelim
 
@@ -36,9 +36,19 @@ public class C03_WindowHandle extends TestBase {
 
 
 
+
+
+
+
+
+
+
+
+
         // 3- yeni bir pencere acip, https://www.bestbuy.com sayfasina gidelim
         driver.switchTo().newWindow(WindowType.WINDOW);
         driver.get("https://www.bestbuy.com");
+
         String sayfa2Handle = driver.getWindowHandle();
 
 
@@ -51,10 +61,15 @@ public class C03_WindowHandle extends TestBase {
         Assert.assertTrue(bestBuyTitle.contains("Best Buy"));
 
 
+        Thread.sleep(2000);
 
 
 
-        // 5- ilk sayfaya(amazon) donup sayfada java aratalım
+
+
+
+
+        // 5- ilk sayfaya(amazon) donup sayfada Java aratalım
         driver.switchTo().window(sayfa1Handle);
 
         driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("Java"+ Keys.ENTER);
@@ -64,11 +79,18 @@ public class C03_WindowHandle extends TestBase {
 
 
 
-        // 6- arama sonuclarının 'Java' icerdigini test edelim
+        // 6- arama sonuc yazısının 'Java' icerdigini test edelim
         WebElement aramaSonucu = driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
         String aramaSonucuStr = aramaSonucu.getText();
 
         Assert.assertTrue(aramaSonucuStr.contains("Java"));
+
+
+
+
+
+        Thread.sleep(2000);
+
 
 
 
@@ -80,7 +102,12 @@ public class C03_WindowHandle extends TestBase {
 
 
 
-        // 8- logonun gorundugunu test edelim
+
+
+
+
+
+        // 8- BestBuy logosunun gorundugunu test edelim
         WebElement logo = driver.findElement(By.xpath("(//img[@class='logo'])[1]"));
 
         Assert.assertTrue(logo.isDisplayed());

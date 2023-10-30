@@ -2,6 +2,7 @@ package day_02;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -12,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 public class C02 {
 
@@ -70,13 +72,14 @@ public class C02 {
 
         String googleTitle = driver.getTitle();
 
+        Assert.assertTrue(googleTitle.contains("Google"));
 
 
-        if(googleTitle.contains("Google")){
-            System.out.println("Title Google iceriyor");
-        }else{
-            System.out.println("Title Google icermiyor");
-        }
+        //if(googleTitle.contains("Google")){
+        //    System.out.println("Title Google iceriyor");
+        //}else{
+        //    System.out.println("Title Google icermiyor");
+        //}
 
 
         Thread.sleep(2000);
@@ -128,6 +131,8 @@ public class C02 {
 
         String arr[] = sonucYazisi.getText().split(" ");
 
+        System.out.println(Arrays.toString(arr));
+
         String sonuc = arr[1];
 
         System.out.println(sonuc);
@@ -149,13 +154,15 @@ public class C02 {
         String sonucc = sonuc.replaceAll("\\D","");
 
 
+        Assert.assertTrue(Integer.parseInt(sonucc)>100000000);
 
 
-        if(Integer.parseInt(sonucc)>100000000){
-            System.out.println("Sonuc sayısı 10000000'dan fazla");
-        }else{
-            System.out.println("Sonuc sayısı 10000000'dan fazla degil");
-        }
+        //if(Integer.parseInt(sonucc)>100000000){
+        //    System.out.println("Sonuc sayısı 10000000'dan fazla");
+        //}else{
+        //    System.out.println("Sonuc sayısı 10000000'dan fazla degil");
+        //}
+
 
 
 

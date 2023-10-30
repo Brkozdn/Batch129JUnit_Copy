@@ -1,10 +1,7 @@
 package day_03;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class C03_CheckBox {
+public class C01_CheckBox {
 
 
     /*
@@ -42,18 +39,10 @@ public class C03_CheckBox {
     }
 
 
-
-
-
-
     @After
     public void tearDown() throws Exception {
        // driver.close();
     }
-
-
-
-
 
 
     @Test

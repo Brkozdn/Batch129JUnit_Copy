@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class C04_RadioButton {
+public class C02_RadioButton {
 
         /*
     RadioButton ==> BİRDEN FAZLA HANEYE TİK ATILAMAZ

@@ -64,7 +64,8 @@ public class C05 {
 
 
         // BestBuy logosunun görüntülendigini test edin
-        WebElement bestBuyLogo= driver.findElement(By.className("logo"));
+        //WebElement bestBuyLogo= driver.findElement(By.className("logo"));
+        WebElement bestBuyLogo= driver.findElement(By.xpath("(//img[@class='logo'])[1]"));
         Assert.assertTrue(bestBuyLogo.isDisplayed());
 
 

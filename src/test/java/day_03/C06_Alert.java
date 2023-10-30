@@ -10,25 +10,32 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import utilities.TestBase;
 
 import java.time.Duration;
 
-public class C06_Alert {
+public class C06_Alert extends TestBase {
 
 
-    // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
 
     // Bir test metodu olusturun: acceptAlert
+    // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
     // 1. butona tıklayın
     // uyarıdaki OK butonuna tıklayın
     // result mesajının  “You successfully clicked an alert” oldugunu test edin.
 
+
+
     // Bir test metodu olusturun: dismissAlert
+    // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
     // 2. butona tıklayın
     // uyarıdaki CANCEL butonuna tıklayın
     // result mesajının “successfuly” icermedigini test edin.
 
+
+
     // Bir test metodu olusturun: sendKeysAlert
+    // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
     // 3. butona tıklayın
     // uyarıdaki metin kutusuna isminizi yazin
     // uyarıdaki OK butonuna tıklayın
@@ -40,53 +47,13 @@ public class C06_Alert {
 
 
 
-
-    WebDriver driver;
-
-
-    @Before
-    public void setUp() throws Exception {
-
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-        // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
-        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
-        Thread.sleep(2000);
-    }
-
-
-
-
-
-
-
-
-
-    @After
-    public void tearDown() throws Exception {
-        driver.close();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Bir test metodu olusturun: acceptAlert
     @Test
     public void acceptAlert() throws InterruptedException {
+
+        // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
+        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+
 
 
         // 1. butona tıklayın
@@ -96,6 +63,7 @@ public class C06_Alert {
 
         // uyarıdaki Tamam butonuna tıklayın
         driver.switchTo().alert().accept();
+        // alertAccept();
         Thread.sleep(2000);
 
 
@@ -127,6 +95,12 @@ public class C06_Alert {
     @Test
     public void dismissAlert() throws InterruptedException {
 
+        // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
+        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+
+
+
+
         // 2. butona tıklayın
         driver.findElement(By.xpath("//button[text()='Click for JS Confirm']")).click();
         Thread.sleep(2000);
@@ -136,6 +110,7 @@ public class C06_Alert {
 
         // uyarıdaki İptal butonuna tıklayın
         driver.switchTo().alert().dismiss();
+        // alertDismiss();
         Thread.sleep(2000);
 
 
@@ -164,6 +139,12 @@ public class C06_Alert {
     public void sendKeysAlert() throws InterruptedException {
 
 
+        // https://the-internet.herokuapp.com/javascript_alerts adresine gidin.
+        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+
+
+
+
         // 3. butona tıklayın
         driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click();
         Thread.sleep(2000);
@@ -172,12 +153,14 @@ public class C06_Alert {
 
         // uyarıdaki metin kutusuna isminizi yazin
         driver.switchTo().alert().sendKeys("Burak");
+        // alertsendKeys("Burak");
         Thread.sleep(2000);
 
 
 
         // uyarıdaki OK butonuna tıklayın
         driver.switchTo().alert().accept();
+        // alertAccept();
         Thread.sleep(2000);
 
 

@@ -1,4 +1,4 @@
-package day_06;
+package day_05;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,13 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
-public class C01_FilesUpload extends TestBase {
+public class C09_FilesUpload extends TestBase {
 
     // masaustunde bir deneme dosyası olusturun
     // 'https://the-internet.herokuapp.com/upload' adresine gidiniz
     // 'Dosya Seç' kısmına deneme dosyasını yükleyiniz
     // 'Upload' butonuna basın
     // 'File Uploaded!' yazısının goruntulendigini test edin
+
 
 
     @Test
@@ -60,12 +61,20 @@ public class C01_FilesUpload extends TestBase {
 
 
 
+
+
+
+
         // "C:\Users\BURAK\Desktop\deneme.txt"
 
         String farkliKisim = System.getProperty("user.home");
         String ortakKisim = "\\Desktop\\deneme.txt";
 
         String dosyaYolu = farkliKisim+ortakKisim;
+
+
+
+
 
 
         dosyaSec.sendKeys(dosyaYolu); /////////////////////////////////////////////////
@@ -112,9 +121,10 @@ public class C01_FilesUpload extends TestBase {
 
 
         // 'File Uploaded!' yazısının goruntulendigini test edin
-       // WebElement fileUploaded = driver.findElement(By.xpath("//h3[text()='File Uploaded!']"));
+        WebElement fileUploaded = driver.findElement(By.xpath("//h3[text()='File Uploaded!']"));
 
-       // Assert.assertTrue(fileUploaded.isDisplayed());
+        Assert.assertTrue(fileUploaded.isDisplayed());
+        // Assert.assertEquals("File Uploaded!",fileUploaded.getText());
 
 
 

@@ -7,10 +7,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import utilities.TestBase;
 
 import java.time.Duration;
 
-public class C05_Alert {
+public class C05_Alert extends TestBase {
 
 
 
@@ -23,26 +24,14 @@ public class C05_Alert {
     //cıkan 2. alerti kabul edin
 
 
-    WebDriver driver;
 
-    @Before
-    public void setUp() throws Exception {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*"));
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        // driver.close();
-    }
 
     @Test
     public void name() throws InterruptedException {
 
         // http://demo.guru99.com/test/delete_customer.php adresine gidin
         driver.get("http://demo.guru99.com/test/delete_customer.php");
+
         Thread.sleep(2000);
 
 
@@ -52,6 +41,7 @@ public class C05_Alert {
 
         //customer id kısmına 53920 yazın
         driver.findElement(By.xpath("//input[@name='cusid']")).sendKeys("53920");
+
         Thread.sleep(2000);
 
 
@@ -60,7 +50,10 @@ public class C05_Alert {
 
         //submit butonuna tıklayın
         driver.findElement(By.xpath("//input[@name='submit']")).click();
+
         Thread.sleep(2000);
+
+
 
 
 
@@ -69,7 +62,11 @@ public class C05_Alert {
         //cıkan alert mesajını yazdırın
         String alertYazisi = driver.switchTo().alert().getText();
         System.out.println("ALERT YAZISI: " +alertYazisi);
+        // alertgetText();
+
         Thread.sleep(2000);
+
+
 
 
 
@@ -78,7 +75,12 @@ public class C05_Alert {
 
         //alerti kabul edin
         driver.switchTo().alert().accept();
+        // alertAccept();
+
         Thread.sleep(2000);
+
+
+
 
 
 
@@ -88,7 +90,11 @@ public class C05_Alert {
         //cıkan 2. alert mesajını yazdırın
         String alertYazisi2 = driver.switchTo().alert().getText();
         System.out.println("ALERT YAZISI: " + alertYazisi2);
+        // alertgetText();
+
         Thread.sleep(2000);
+
+
 
 
 
@@ -97,6 +103,11 @@ public class C05_Alert {
 
         //cıkan 2. alerti kabul edin
         driver.switchTo().alert().accept();
+        // alertAccept();
+
         Thread.sleep(2000);
+
+
+
     }
 }

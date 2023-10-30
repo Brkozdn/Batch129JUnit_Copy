@@ -3,9 +3,7 @@ package day_06;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.TestBase;
@@ -15,52 +13,44 @@ import java.time.Duration;
 public class C02_Waits extends TestBase {
 
 
-    // https://the-internet.herokuapp.com/dynamic_controls adresine gidiniz
-    // Textbox'in etkin olmadıgını(enable) test edin
-    // Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
-    // It's enable! mesajının goruntulendigini test edin
-    // Textbox'in etkin oldugunu(enable) test edin
+
+
+    //==>  https://the-internet.herokuapp.com/dynamic_controls sayfasına gidin
+    //==>  Remove tuşuna basın
+    //==>  "It's gone!" yazısının görünür oldugunu test edin.
+
+
 
 
     @Test
-    public void test01() {
+    public void explicitWait() {
 
-        // https://the-internet.herokuapp.com/dynamic_controls adresine gidiniz
+
+        //==>  https://the-internet.herokuapp.com/dynamic_controls sayfasına gidin
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
 
 
 
 
-        // Textbox'in etkin olmadıgını(enable) test edin
-        WebElement textBox = driver.findElement(By.xpath("//input[@type='text']"));
-        Assert.assertFalse(textBox.isEnabled());
-
-
-
-        // Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
-       WebElement enableButonu =  driver.findElement(By.xpath("//button[text()='Enable']"));
-       enableButonu.click();
-
-       /*
-       DAHA FAZLA BEKLEME SURESİ GEREKTİREN BELİRLİ WEBELEMENTLER İCİN KULLANILIR
-        */
-       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-       wait.until(ExpectedConditions.elementToBeClickable(textBox));
-
-
-
-
-        // It's enable! mesajının goruntulendigini test edin
-        WebElement itsEnableYazisi = driver.findElement(By.xpath("//p[text()=\"It's enabled!\"]"));
-        Assert.assertTrue(itsEnableYazisi.isDisplayed());
+        //==>  Remove tuşuna basın
+        driver.findElement(By.xpath("//*[text()='Remove']")).click();
 
 
 
 
 
-        // Textbox'in etkin oldugunu(enable) test edin
-        Assert.assertTrue(textBox.isEnabled());
+        //==>  "It's gone!" yazısının görünür oldugunu test edin.
+
+
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        WebElement itsGoneYazisi = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='message']")));
+
+
+
+        Assert.assertTrue(itsGoneYazisi.isDisplayed());
 
 
 
@@ -68,4 +58,8 @@ public class C02_Waits extends TestBase {
 
 
     }
+
+
+
+
 }
